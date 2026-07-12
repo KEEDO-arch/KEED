@@ -608,6 +608,7 @@ nav{
 }
 
 .project-card{
+    position:relative;
     background:#fff;
     border-radius:22px;
     overflow:hidden;
@@ -632,6 +633,8 @@ nav{
 }
 
 .project-content{
+    position:relative;
+    z-index:2;
     padding:28px;
 }
 
@@ -652,7 +655,9 @@ nav{
     gap:10px;
     color:var(--orange);
     font-weight:600;
+    text-decoration:none;
     transition:.3s;
+    cursor:pointer;
 }
 
 .project-content a:hover{
@@ -662,12 +667,6 @@ nav{
 /* ==========================================
    HOVER GLOW
 ========================================== */
-
-.project-card,
-.card,
-.about-image img{
-    position:relative;
-}
 
 .project-card::before{
     content:"";
@@ -681,11 +680,16 @@ nav{
     );
     opacity:0;
     transition:.4s;
+
+    /* Prevent overlay from blocking clicks */
+    pointer-events:none;
+    z-index:1;
 }
 
 .project-card:hover::before{
     opacity:1;
 }
+
 /* ==========================================
    CONTACT SECTION
 ========================================== */
