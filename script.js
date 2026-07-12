@@ -6,8 +6,6 @@
 // Mobile Menu
 // ===============================
 
-// Sample commment
-
 const menuBtn = document.querySelector(".menu-btn");
 const nav = document.querySelector("nav");
 const navLinks = document.querySelectorAll(".nav-links a");
