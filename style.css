@@ -22,8 +22,8 @@ html{
 
 body{
 
-    background:#FFF8F0;
-    color:#2d2d2d;
+    background:var(--bg-color);
+    color:var(--text-color);
     overflow-x:hidden;
 
 }
@@ -59,13 +59,37 @@ section{
 
 :root{
 
+    /* Main Theme */
+    --bg-color:#FFF8F0;
+    --second-bg:#ffffff;
+    --card-bg:#ffffff;
+
+    /* Text */
+    --text-color:var(--text-color);
+    --text-light:#707070;
+
+    /* Accent */
     --orange:#F59E0B;
     --lightOrange:#FCD9A7;
-    --cream:#FFF8F0;
-    --white:#ffffff;
-    --dark:#2D2D2D;
-    --gray:#707070;
 
+    /* Effects */
+    --shadow:0 15px 35px rgba(0,0,0,.08);
+    --transition:.35s ease;
+}
+
+body.dark-theme{
+
+    --bg-color:#0F172A;
+    --second-bg:#111827;
+    --card-bg:#1E293B;
+
+    --text-color:#F8FAFC;
+    --text-light:#CBD5E1;
+
+    --orange:#F59E0B;
+    --lightOrange:#FDBA74;
+
+    --shadow:0 15px 35px rgba(0,0,0,.45);
 }
 
 /* =========================================
@@ -74,39 +98,39 @@ section{
 
 header{
 
-    width:100%;
-
     position:fixed;
-
     top:0;
-
     left:0;
 
-    padding:18px 10%;
+    width:100%;
+
+    padding:18px 8%;
 
     display:flex;
-
+    align-items:center;
     justify-content:space-between;
 
-    align-items:center;
+    background:rgba(255,255,255,.80);
 
-    backdrop-filter:blur(20px);
+    backdrop-filter:blur(18px);
 
-    background:rgba(255,255,255,.75);
+    border-bottom:1px solid rgba(255,255,255,.2);
 
-    z-index:999;
+    z-index:1000;
 
-    transition:.3s;
+    transition:.35s ease;
 
 }
 
 .logo{
 
-    font-size:30px;
+    font-size:40px;
 
-    font-weight:700;
+    font-weight:800;
 
-    color:var(--dark);
+    color:var(--text-color);
+
+    cursor:pointer;
 
 }
 
@@ -118,7 +142,13 @@ header{
 
 nav{
 
+    flex:1;
+
     display:flex;
+
+    justify-content:center;
+
+    background:transparent;
 
 }
 
@@ -126,23 +156,61 @@ nav{
 
     display:flex;
 
-    gap:40px;
+    align-items:center;
+
+    gap:42px;
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
 
 }
 
 .nav-links a{
 
-    color:var(--dark);
+    position:relative;
+    text-decoration:none;
 
-    font-weight:500;
+    color:var(--text-color);
 
-    transition:.3s;
+    font-size:17px;
+    font-weight:600;
+
+    transition:.3s ease;
 
 }
 
 .nav-links a:hover{
 
     color:var(--orange);
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+    height:3px;
+
+    background:var(--orange);
+
+    border-radius:20px;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
 
 }
 
@@ -284,7 +352,7 @@ nav{
 
     font-size:35px;
 
-    color:#555;
+    color:var(--text-light);
 
     margin-bottom:20px;
 
@@ -298,7 +366,7 @@ nav{
 
     line-height:1.9;
 
-    color:var(--gray);
+    color:var(--text-light);
 
     margin-bottom:35px;
 
@@ -502,7 +570,7 @@ nav{
 ========================================== */
 
 .about{
-    background:#ffffff;
+    background:var(--bg-color);
 }
 
 .about-container{
@@ -534,11 +602,11 @@ nav{
 .about-content h3{
     font-size:34px;
     margin-bottom:20px;
-    color:var(--dark);
+    color:var(--text-color);
 }
 
 .about-content p{
-    color:var(--gray);
+    color:var(--text-light);
     line-height:1.9;
     margin-bottom:40px;
 }
@@ -598,7 +666,7 @@ nav{
 ========================================== */
 
 .projects{
-    background:#fff;
+    background:var(--bg-color);
 }
 
 .project-grid{
@@ -609,7 +677,7 @@ nav{
 
 .project-card{
     position:relative;
-    background:#fff;
+    background:var(--card-bg);
     border-radius:22px;
     overflow:hidden;
     box-shadow:0 18px 45px rgba(0,0,0,.08);
@@ -644,7 +712,7 @@ nav{
 }
 
 .project-content p{
-    color:var(--gray);
+    color:var(--text-light);
     line-height:1.8;
     margin-bottom:22px;
 }
@@ -695,7 +763,7 @@ nav{
 ========================================== */
 
 .contact{
-    background:#FFF8F0;
+    background:var(--second-bg);
     position:relative;
 }
 
@@ -715,8 +783,8 @@ nav{
     border:none;
     outline:none;
     border-radius:18px;
-    background:#ffffff;
-    color:var(--dark);
+    background:var(--card-bg);
+    color:var(--text-color);
     font-size:16px;
     box-shadow:0 15px 35px rgba(0,0,0,.08);
     transition:.3s;
@@ -1045,7 +1113,7 @@ textarea::placeholder{
 
     .menu-btn{
         display:block;
-        color:var(--dark);
+        color:var(--text-color);
         z-index:1001;
     }
 
@@ -1055,7 +1123,7 @@ textarea::placeholder{
         right:-100%;
         width:280px;
         height:100vh;
-        background:#fff;
+        background:var(--card-bg);
         display:flex;
         justify-content:center;
         align-items:center;
@@ -1275,7 +1343,7 @@ textarea{
 ========================================== */
 
 .journey{
-    background:#ffffff;
+    background:var(--bg-color);
 }
 
 .journey-container{
@@ -1339,7 +1407,7 @@ textarea{
 }
 
 .timeline-content{
-    background:#fff;
+    background:var(--card-bg);
     padding:28px;
     border-radius:18px;
     box-shadow:0 15px 40px rgba(0,0,0,.08);
@@ -1358,7 +1426,7 @@ textarea{
 }
 
 .timeline-content p{
-    color:#666;
+    color:var(--text-light);
     line-height:1.8;
 }
 
@@ -1382,4 +1450,114 @@ textarea{
         font-size:20px;
     }
 
+}
+
+/* ===================================
+   DARK MODE NAVBAR
+=================================== */
+
+body.dark-theme header{
+
+    background:rgba(15,23,42,.88);
+
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+body.dark-theme nav{
+
+    background:transparent;
+
+}
+
+body.dark-theme .nav-links a{
+
+    color:#F8FAFC;
+
+}
+
+body.dark-theme .nav-links a:hover{
+
+    color:var(--orange);
+
+}
+
+body.dark-theme .logo{
+
+    color:#F8FAFC;
+
+}
+
+body.dark-theme .hire-btn{
+
+    color:white;
+
+}
+
+body.dark-theme #theme-toggle{
+
+    background:#1E293B;
+
+    color:#FFD54A;
+
+}
+
+#theme-toggle{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:var(--card-bg);
+
+    color:var(--text-color);
+
+    font-size:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+    transition:.35s ease;
+
+}
+
+#theme-toggle:hover{
+
+    transform:rotate(180deg);
+
+    color:var(--orange);
+
+}
+
+/* =========================
+   DARK MODE NAV
+========================= */
+
+body.dark-theme .nav-links a:hover{
+    color:var(--orange) !important;
+}
+
+body.dark-theme .logo{
+    color:#F8FAFC !important;
+}
+
+body.dark-theme header{
+    background:rgba(15,23,42,.88) !important;
+}
+
+body.dark-theme nav{
+    background:transparent !important;
 }

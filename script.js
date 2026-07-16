@@ -476,3 +476,29 @@ console.log(
 "%cBuilt with HTML, CSS & JavaScript",
 "color:#555;font-size:14px;"
 );
+
+// ===============================
+// DARK MODE
+// ===============================
+
+const toggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-theme");
+    toggle.innerHTML = '<i class="fas fa-sun"></i>';
+}
+
+toggle.addEventListener("click", () => {
+
+    body.classList.toggle("dark-theme");
+
+    if (body.classList.contains("dark-theme")) {
+        localStorage.setItem("theme", "dark");
+        toggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        localStorage.setItem("theme", "light");
+        toggle.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+
+});
