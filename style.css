@@ -228,29 +228,7 @@ nav{
    Buttons
 ========================================= */
 
-.hire-btn{
 
-    background:var(--orange);
-
-    color:white;
-
-    padding:13px 28px;
-
-    border-radius:40px;
-
-    transition:.3s;
-
-    font-weight:600;
-
-}
-
-.hire-btn:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:0 15px 35px rgba(245,158,11,.35);
-
-}
 
 .btn{
 
